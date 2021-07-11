@@ -46,7 +46,7 @@ p {
     }
 
     #me {
-        width: 70vw;
+        width: 100vw;
         border: solid 9px papayawhip;
         border-radius: 3px;
         box-shadow: 0 0px 10px rgba(0,0,0,0.2);
