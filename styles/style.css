@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: keifont;
+    src: url(font/keifont.ttf);
+    font-family: clfont;
+    src: url(font/clfont.ttf);
+}
+
+body {
+    background: papayawhip;
+    font-family: keifont;
+}
+p {
+    margin-left: 10px
+}
+
+#me {
+    width: 40vw;
+    border: solid 9px papayawhip;
+    border-radius: 3px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.foo div {
+    margin-left : 10px;
+    display: inline-block;
+}
+
+.card {
+    max-width: 400px;
+    border: solid 7px papayawhip;
+    border-radius: 3px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.icon {
+    width: 10vw;
+}
+
+.title-1 {
+    border: solid 3px rgb(255, 145, 0);
+    border-radius: 8px;
+    padding-top: 0.3px;
+    font-family: clfont;
+}
+
+.title-2{
+    border-left: solid 10px rgb(255, 145, 0);
+    border-radius: 4px;
+    margin-left : 10px;
+}
+
+.mgr-10 {
+    margin-left: 10px
+}
+
+.color1 {
+    color: #9c0000;
+}
+
+.color2 {
+    background:papayawhip;
+  border: solid 3px rgb(255, 145, 0);
+  color:#7a7878;
+  border-radius: 3px;
+}
+
+.link-1 {
+    text-decoration: none;
+    color: black;
+}
