@@ -37,7 +37,13 @@ p {
 }
 
 .icon {
-    width: 50vw;
+    width: 10vw;
+}
+
+@media only screen and (max-width: 750px) {
+    .icon {
+        width: 50vw;
+    }
 }
 
 .title-1 {
