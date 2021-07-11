@@ -44,6 +44,14 @@ p {
     .icon {
         width: 50vw;
     }
+
+    #me {
+        width: 70vw;
+        border: solid 9px papayawhip;
+        border-radius: 3px;
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
 }
 
 .title-1 {
