@@ -11,7 +11,7 @@ document.write(`<header>
                 <div class="header-log">シューのリソース工房</div>
                 <div id="hedaer-list">
                         <ul>
-                                <li><a class="color2" href="./index.html">ホーム</a></li>
+                                <li><a class="color2" href="https://syu-rws.vercel.app/">ホーム</a></li>
                                 <li><a class="color2" href="./index.html">ジャンル別目次</a></li>
                                 <li><a class="color2" href="https://twitter.com/H2DH8K">開発者</a></li><a>使ってくれてありがとう！</a></ul>
                 </div>
