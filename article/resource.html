@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>パックってなんだ？？リソースパックを作りながら解説！</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/article/resource.html" />
+    <meta property="og:title" content="パックってなんだ？？リソースパックを作りながら解説！" />
+    <meta property="og:description" content="リソースパックを使ってパックについて解説しています" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/img/resource.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	  <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+	  <link rel="apple-touch-icon" href="../img/favicon.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../scripts/header.js"></script>
+    <h1 class="title-1"><span class="mgr-10">パックってなんだ？？リソースパックを作りながら解説！</span></h1>
+    <p>こんにちはシューです
+    <br>「パックを用意してください」と私もよく言いますが、始めたばかりの人は「パックってなんだ？」って思うと思います
+    <br>今回はパックについてできるだけわかりやすく解説してみようと思います
+    </p>
+    <h2 class="title-2">パックって？</h2>
+    <p>パックってなんだ？もちろんそこからですよね
+    <br>思い浮かべてみてください。
+    <br>簡単に言えばパッケージのようなものです
+    <br>小包のような外装のような
+    <br>説明すると難しいですが、まぁもとになる箱のようなものと覚えておけばよいでしょう
+    </p>
+    <h2 class="title-2">じゃぁリソースパックとビヘイビアパックって何なの？違いは？</h2>
+    <p>パックと一言に言っても、beにはリソースとビヘイビアの二つがあります
+    <br>そんな難しいものではないですけどね
+    <br><br>リソースパックは<span class="ore">テクスチャやアニメーションなどを管理するもの</span>
+    <br>ビヘイビアパックは<span class="ore">実際の動作部分やコマンドを扱ったりするもの</span>
+    <br>という感じです
+    <br>ちなみにですが、この二つを総称して<span class="green">アドオン</span>といいます
+    <br>あくまで二つの総称なのでリソースもアドオンです
+    <br><br>詳しく説明していきますと
+    <br>リソースはテクスチャやアニメーション、つまり見た目に関することです
+    <br>テクスチャパックって入れたことないですか？あれがリソースパックです
+    <br>前回の記事で説明したuiも見た目に関することですよね
+    <br><br>対してビヘイビアパックは見た目ではなく<span class="ore">動作</span>にかかわるものです
+    <br>例えばゾンビやスケルトンが日光に焼けるのはこのビヘイビア側で定義されているからです
+    <br>豚が豚肉を落とすのもこのビヘイビアで定義されてます
+    <br>こういった見た目には直接かかわらないけど、細かい仕様などを作っていくのがビヘイビアです
+    <br><br>このサイト全体ではリソースをメインに解説していくので
+    <br>リソースパックを作っていきながら見ていきましょう
+    </p>
+    <h2 class="title-2">実際に作ってみよう！</h2>
+    <p>では実際に作っていきましょう
+    <br>ファイル構成は以下の通りです
+    </p>
+    <div class="file">
+        <ul>
+          <li><i class="fas fa-folder"></i><a class="mgr-10">リソースパック</a>
+            <ul>
+              <li><i class="fas fa-folder"></i><a class="mgr-10">textures</a>
+                <ul>
+                  <li><i class="fas fa-folder"></i><a class="mgr-10">items</a>
+                    <ul>
+                      <li><i class="fas fa-images"></i><a class="mgr-10">...</a></li>
+                    </ul>
+                  </li>
+                  <li><i class="fas fa-folder"></i><a class="mgr-10">...</a></li>
+                </ul>
+              </li>
+                  <li><i class="fas fa-file-alt"></i><a class="mgr-10">manifest.json</a></li>
+                  <li><i class="fas fa-images"></i><a class="mgr-10">pack_icon.png<span class="mini">こちらはお好みで</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <p>ファイル構成の見方は各自で調べてみてください
+        <br>では見ていきましょう
+        <br>まずは一番上のリソースパックからです
+        <br>これはファイルでこの中にフォルダとかファイルを入れていきます
+        <br>これの名前は特に気にしなくていいです
+        <br>なんでもいいんですが、分かりやすいのでリソースパックにしています
+        <br>まぁRでもああああでも大丈夫です
+        <br><br>その中身のファイルです
+        <br>texturesはテクスチャを入れるフォルダです
+        <br>この中にまたitemsだとかblocksを入れて画像ファイルを入れていきます
+        <br>ほかにもuiだとかentityだとかを入れていきます
+        <br>textures以外は基本的にjsonファイルが入っていますので基本はいじりません
+        <br>次にmanifest.jsonです
+        <br><br>こちらのファイルはこの<span class="ore">フォルダをパックと認識</span>させる重要なファイル、なくてはならないものです
+        <br>識別子のようなものですmanifestの書き方は後ほど
+        <br>pack_icon.pngはパックのアイコンです
+        <br>なくてもいいですけどあるとわかりやすいのでお勧めです
+        <br>正方形の画像ならなんでもよかったと思います
+        </p>
+        <h2 class="title-2">manifestを書いてみよう！</h2>
+        <p>ではmanifestを書いていきましょう！
+        <br>と、行ってもいいんですけど、実際パックを作っていくごとに一々manifestを書くのってめんどいんですよね
+        <br>manifestに関しては<a href="https://tokamcwin10.blog.jp/article-38495158">こちら</a>がわかりやすいので一度読んでおくといいかもです
+        <br><br>これを読んだ後ならわかると思いますが、一回一回uuidを生成して...コピーして...いやめんどくせぇ
+        <br>そこで！<a href="https://shah-two.vercel.app/tools/mine/Manifest_generation.html">こんなもの</a>を用意しました！
+        <br>これは名前と説明を入れて生成するだけでダウンロードされ、フォルダの中に入れるだけで終わります
+        <br>とっても便利ですよね
+        <br>使って損はナシ！便利なので使おう！
+        <br><br>と、manifestは以上になります
+        </p>
+        <h2 class="title-2">テクスチャを変えてみよう！</h2>
+        <p>では実践がてら一度ダイアモンドのテクスチャを変えてみようと思います
+        <br>上で解説したようにフォルダを用意しておいてください
+        <br>今回はtextures/items/diamond.pngを作っていくのでitemsの中に画像ファイルを入れることになります
+        <br><br>テクスチャを変更するのはtexturesに入ってるフォルダの中に画像ファイルが入っています
+        <br>その中の画像と同じ名前の画像を入れるとテクスチャが変わります
+        <br><br>画像の名前は公式が配布しているファイルに入ってます
+        <br>下の動画と同じようにすればダウンロードできます
+        <br><iframe width="535" height="290" src="https://www.youtube.com/embed/18Z-43wPjPQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>前回出したuiについての記事なので多少無駄な部分がありますが一応できます
+        <br><br>ではテクスチャを用意するんですけど、これも特にルールがあるわけじゃないんですよね
+        <br>しいて言えば、マイクラはすべて<span class="ore">ドット絵</span>というものです
+        <br>ドットペンというものでカクカクした、荒いような画像です
+        <br>私も昔はよく描いてましたね<span class="mini">懐かしい</span>
+        <br>画像は<span class="ore">px</span>という大草の指定方法をし、アイテムの画像では一般的に<span class="green">16pxかける16px</span>という正方形の大きさで描きます
+        <br>ほかにも32pxかける32pxなどもよく使われますね
+        <br>この大きさでドットペンを使って描けばあらなんと完成です
+        <br>もう一つ、大事なことがありまして、拡張子が<span class="ore">png</span>形式出ないと使えなかった記憶があります
+        <br>誤字などに気を付けましょう
+        </p>
+        <h2 class="title-2">適用してみよう！</h2>
+        <p>最後に適用して終わりです
+        <br>やり方は以下の動画にまとめてみました
+        <br><iframe width="535" height="290" src="https://www.youtube.com/embed/0-lmqCFfSE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>この動画のように圧縮から名前を変えてダブルクリックでインポートです
+        <br>これで終わりです。お疲れさまでした
+        </p>
+        <h2 class="title-2">終わりに</h2>
+        <p>いかがでしたか？
+        <br>実際に少し作っていきながらパックについて解説してみました
+        <br>パックについて、その作り方について少しでも理解が深まってもらえれば嬉しいです
+        <br>ではまた
+        </p>
+    </div>
+    <script src="../scripts/footer.js"></script>
+    </body>
+</html>
