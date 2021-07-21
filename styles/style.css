@@ -15,22 +15,27 @@ p {
     margin-left: 10px
 }
 
-.button {
+#openin:checked+.open {
+    display: block;
+    padding: 45px;
+    border: dashed 4px  rgb(255, 145, 0);
+}
+
+.open,.index input[type="checkbox"]{
+    display: none;
+}
+
+.index {
     display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 4px;
-    color: #ffffff;
-    background-image: linear-gradient(#fd6767 0%, hsl(0, 89%, 76%) 100%);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-    border-bottom: solid 3px #ca5e5e;}
-  
-.button:active {
-    /*押したとき*/
-    -webkit-transform: translateY(2px);
-    transform: translateY(2px);/*沈むように*/
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-    background-image: linear-gradient(#fa6464 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+    max-width: 400px;
+    border: solid 9px papayawhip;
+    border-radius: 3px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.open li {
+    list-style: none;
 }
 
 #me {
@@ -80,7 +85,26 @@ p {
 .mini {
     font-size: 12px;
     color: #979797;
-  }
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background-image: linear-gradient(#fd6767 0%, hsl(0, 89%, 76%) 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #ca5e5e;
+}
+  
+.button:active {
+    /*押したとき*/
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(#fa6464 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+}
 
 .file ul li ul {
     list-style: none;
@@ -144,6 +168,10 @@ p {
 
 .link-1 {
     text-decoration: none;
+    color: black;
+}
+
+.link-2 {
     color: black;
 }
 

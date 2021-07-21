@@ -40,7 +40,7 @@ header {
       height: 3px;/*線の太さ*/
       width: 25px;/*長さ*/
       border-radius: 3px;
-      background: rgb(255, 255, 255);
+      background: rgb(131, 128, 128);
       display: block;
       content: '';
       cursor: pointer;
@@ -75,7 +75,7 @@ header {
       width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
       max-width: 330px;/*最大幅（調整してください）*/
       height: 100%;
-      background: #fff;/*背景色*/
+      background: papayawhip;/*背景色*/
       transition: all 1s ease-out;/*滑らかに表示*/
       -webkit-transform: translateX(-105%);
       opacity: 0;
