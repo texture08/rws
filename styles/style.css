@@ -36,6 +36,7 @@ p {
 
 .open li {
     list-style: none;
+    margin-bottom: 10px;
 }
 
 #me {
