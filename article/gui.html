@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>パックってなんだ？？リソースパックを作りながら解説！</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/article/gui.html" />
+    <meta property="og:title" content="インベントリも自由？！BackImageGUIの使い方！" />
+    <meta property="og:description" content="「インベントリの画像を変えたいけどわからない」そんな悩みを解決します" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/img/gui.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	  <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+	  <link rel="apple-touch-icon" href="../img/favicon.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../scripts/header.js"></script>
+    <h1 class="title-1"><span class="mgr-10">インベントリも自由？！BackImageGUIの使い方！</span></h1>
+    <p>こんにちはシューです
+    <br>たまにbeでインベントリの画像を変えたりとかしてる人っていませんか？
+    <br>「自分もやってみたい...」って思っても情報が古くて出来なかったり、最新情報がなかったり...
+    <br>今回はそんなことを解決するために
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">どうやってやるの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">uiをいじればできるんだ！教えて！！</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">実際に作ってみよう！</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2021.07.26</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">どうやってやるの？</h2>
+    <p>実はデフォルトでインベントリの画像<span class="mini">以後すべてまとめてguiと呼びます</span>ってのは存在しません
+    <br>存在はするかもしれませんがいじることができないのです
+    <br>「じゃぁどうやってやったんだ！！」そう怒らないでください
+    <br>uiをいじることによってguiを変えることが出来ちゃうんです！
+    <br>uiってすごいですよね～（小並感）
+    </p>
+    <h2 class="title-2" id="s2">uiをいじればできるんだ！教えて！！</h2>
+    <p>さて！uiを書いていきます！コードはこちらドーン
+    <br>...そうはいかないです
+    <br>自分で書いていくと手間ですし何せ一から用意すると難しいんです
+    <br>じゃぁどうすんのって思うと思いますが安心してください
+    <br>有志の方が「画像を用意してちょっとjsonいじるだけでできるようにしたよ」と言って<span class="mini">言ってないです</span>作ってくれたものがあります
+    <br>皆さんでせーっの「ありがとう！！！マジ神！！！」
+    <br>それがタイトルにもあるようにこちら<a href="https://riku1227.com/html/distributions/backimage_gui.html" target="_blank">BackImageGUI</a>です
+    <br>ほんと便利な時代です。私も愛用させてもらってます。ありがとう、製作者様
+    </p>
+    <h2 class="title-2" id="s3">実際に作ってみよう！</h2>
+    <p>では実際に作っていきましょう
+    <br>と行きたいんですけど、製作者様のリンクを読めば大体はわかってしまいます
+    <br>注意だけ書いていこうと思います
+    <br><br>ではまずそれぞれのguiの画像の大きさについてです
+    <br>画像の大きさは解凍したフォルダの中にresolution.txtというファイルがあると思います
+    <br>その中にアンヴィルとか書いてあると思うのでその大きさに沿って用意しましょう
+    <br><br>次は用意した画像ファイルを置くところです
+    <br>textures/backimagegui/に用意した画像を入れましょう
+    <br>名前は既にファイルがあってそこに書かれてるのでそれに合わせて用意してくださいね
+    <br><br>配布に関する注意
+    <br>サイトに二次配布に関することが書かれていないので勝手に配布するのはグレーだと思います
+    <br>もし配布したい場合は製作者様に問い合わせて許可を得て
+    <br>尚且つ<span class="mini">なおかつ</span>、使ったよとしっかり明記した上で配布しましょう
+    <br>ダメと言われたら素直に諦めてください
+    </p>
+        <h2 class="title-2" id="s4">終わりに</h2>
+        <p>いかがでしたか？
+        <br>今回は実際につくるということはなかったですが
+        <br>少しでも「インベントリの画像を変えたい...」と困ってる人の役に立てればなと
+        <br>あとそれで困ってる人がいたらぜひ教えてあげてください
+        <br>では以上！ばぁい
+        </p>
+    </div>
+    <script src="../scripts/footer.js"></script>
+    </body>
+</html>
