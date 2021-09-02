@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>キーボードを作りたい話</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/blog/article/key.html" />
+    <meta property="og:title" content="キーボードを作りたい話" />
+    <meta property="og:description" content="arduinoを使って1からキーボードを作りたいなぁという気持ちで書きました" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/blog/img/key.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../../img/blog.png">
+	  <link rel="shortcut icon" type="image/png" href="../../img/blog.png">
+	  <link rel="apple-touch-icon" href="../../img/blog.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../../scripts/header_blog.js"></script>
+    <h1 class="title-1"><span class="mgr-10">キーボードを作りたい話</span></h1>
+    <p>こんにちはシューです
+    <br>最近、電子工作にまたハマってしまいました
+    <br>せっかくだし何か作りたいなぁ～って思ったところ
+    <br>最近日本でも自作キーボードが流行りつつあるのでせっかくならキーボードを作ってしまえ！ってことですね
+    <br>今回は一回目ということで何回かに分けて完成させていきたいと思います
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">キーボードを作ろうと思ったワケ</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">自作するメリットとは？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">何を作るの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">どうやって作るの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s5" class="link-2">なんでわざわざめんどくさい方を選ぶの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s6" class="link-2">何を使うの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s7" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2021.07.21</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">キーボードを作ろうと思ったワケ</h2>
+    <p>まぁまず、なんでわざわざ作るんだ？っていう疑問もあると思います
+    <br>確かに私が作りたいやつはAmazonで軽く検索をかけてみると1000円から2000円程度でお手軽に買えてしまいます
+    <br>それなのに5000円以上出して自作する意味あんの？って話です
+    <br><br>元々私はキーボードではなく、電卓を作る予定でした
+    <br>ですが、それは技術的に難しいと思い断念しました
+    <br>そこで簡単なテンキー程度なら作れるんじゃないのかなと思った次第です
+    <br>まぁ5000円以上はかかってしまいますが、自作することによってメリットもありますよ
+    </p>
+    <h2 class="title-2" id="s2">自作するメリットとは？</h2>
+    <p>自作するデメリットはお金がかかってしまうところなんですが、メリットはなんと
+    <br><span class="ore">自分だけのカスタマイズができる</span>ところにあると私は思います
+    <br>自分で作ることによってお気に入りのキースイッチを使ったり、自由な配列を作ることができたりします
+    <br><br>いやま。それだけなんですけどね。何かを作るのが好きではない方は普通に買った方がいいですよ。
+    </p>
+    <h2 class="title-2" id="s3">何を作るの？</h2>
+    <p>ちらっと述べましたが、今回はテンキーを作ろうと思います
+    <br>いきなり100%とか80%キーボードを作ろうとなると費用と労力が...<span class="mini">100%、80%はキーボードの大きさのことです</span>
+    <br>なので比較的キーが少ないテンキーにしたってことです
+    <br><br>まぁほんとは電卓の方がよかったんですけどね。かなり難しい。。。
+    </p>
+    <h2 class="title-2" id="s4">どうやって作るの？</h2>
+    <p>キーボードを作るのは大まかに2種類あります
+    <br>1つめは<span class="ore">キットや市販パーツ</span>を買ってきて組み立てる方法
+    <br>こちらはオーソドックスなやり方ですね
+    <br>海外からの輸入とかになりますが、海外だとこういったパーツがたくさんあります
+    <br>100%80%のキーボードを作るならこちらの方法が無難で簡単でしょう。
+    <br>ただ直輸入だったりするので費用はお高いです
+    <br><br>2つめは<span class="ore">自分で1から設計する</span>方法です
+    <br>こちらは基板やケースを自分で設計して作ろうねっていう方法です
+    <br>前者の方法ではすでに完成している基板にスイッチをつけてケースにぶち込んで終わりなんですが
+    <br>この後者の方法ですと、そもそも基板とケースを設計して、プログラムも自分で書き込んで行く必要があります
+    <br><br>めんどくさい方法ですが、今回は後者の方法を採用していこうと思います
+    </p>
+    <h2 class="title-2" id="s5">なんでわざわざめんどくさい方を選ぶの？</h2>
+    <p>そういわれてしまうと私も困ってしまいます。
+    <br><a href="https://shop.yushakobo.jp/collections/keyboard-1/products/soyuz">遊舎工房様</a>の自作キットで2000円程度で販売されているものがあります
+    <br>現在簡単にパーツ代を計算すると5000円を軽く超えるといった計算になっています
+    <br>...普通にキット買った方が安いじゃん...？
+    <br>いやいや、ま、そうなんですけど！この自分で1から作るってところが楽しいんです！！
+    <br>取り乱しました。
+    <br>でもめんどくさい方法とはいってもプログラム自体は結構単純なんですよ？
+    </p>
+    <h2 class="title-2" id="s6">何を使うの？</h2>
+    <p>今回は使うのはarduinoというものです
+    <br>こちらは<span class="ore">マイコンボード</span>と呼ばれるものです
+    <br>プログラムを書き込んで、部品を制御するための基板、頭脳の部分と言えばいいでしょうか？
+    <br>こちらのマイコンボード<span class="mini">以後マイコンと呼びますが正確には少し違います</span>を使うことでキーボードとしての処理ができるようになります
+    <br><br>例えば、「SW1を押したらAって入力するよ！」という処理をするときに
+    <br>マイコンの入力部分に接続してあるボタンが押されたかどうかをまずは検出します
+    <br>次に押されたと認識したらマイコンが「SW1が押されたからAを入力するよ！」と信号を出します
+    <br>そして出力部分につながったパソコンが受け取ってAが入力されます
+    <br>結構変な説明ですが、大体はそうです
+    <br><br>マイコン以外に、キースイッチ、ダイオードなどの電子部品やキーキャップを用意します
+    <br>部品をハンダする電子基板やケースは自分で作ります
+    <br>電子基板に関しては<span class="green">ユニバーサル基板</span>で自分で作るか、<span class="green">プリント基板</span>を外注するか迷い中です
+    </p>
+    <h2 class="title-2" id="s7">終わりに</h2>
+    <p>さて、いかがでしたか？
+    <br>字ばっかでもう飽きた方もいるかもしれませんが
+    <br>少しでもこの1から自作キーボード計画に興味を持たれたら幸いです
+    <br>次の記事からは実際に試行錯誤しながら組んでいこうと思います
+    <br>完成がいつになるかはわかりませんし、もしかしたら途中で失踪するかもしれませんが
+    <br>どうぞお付き合いください
+    <br>もっとこうした方がいいよ！とかあれば是非TwitterのDMにまでお願いします
+    <br><br><a href="https://twitter.com/intent/tweet?text=%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E8%A9%B1%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%0Ahttps://syu-rws.vercel.app/blog/article/key.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+    </p>
+  </div>
+  <script src="../../scripts/footer.js"></script>
+  </body>
+</html>
