@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>キーボードを作りたい話#2</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/blog/article/key2.html" />
+    <meta property="og:title" content="キーボードを作りたい話#2" />
+    <meta property="og:description" content="キーボードを作るための簡単な試作をしてみました" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/blog/img/key2.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../../img/blog.png">
+	  <link rel="shortcut icon" type="image/png" href="../../img/blog.png">
+	  <link rel="apple-touch-icon" href="../../img/blog.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../../scripts/header_blog.js"></script>
+    <h1 class="title-1"><span class="mgr-10">キーボードを作りたい話#2</span></h1>
+    <p>こんにちはシューです
+    <br>前回に続いてキーボードを作るために試作をしていきたいと思います
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">とりあえず試作部品</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">実際に作ってみる</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">とりあえず4キーのキーボードを作ってみる</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">ここで出てくる問題</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2021.09.04</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">とりあえず試作部品</h2>
+    <p>とにもかくにも部品がないと試作もなにもできないので今回新しく買ったものを紹介します
+    <br>ちなみにですが、私は<a href="https://www.amazon.co.jp/dp/B081F7FNR7/ref=cm_sw_r_tw_dp_5N1496Z6GFKWQ6B2K5MY?_encoding=UTF8&psc=1">このようなスターターキット</a>を購入しているので、タクトスイッチなど一部パーツはすでに持っています
+    <h3>Arduinno Pro Micro</h3>
+    <br><img src="./img/pro_micro.jpg" class="img">
+    <br>みんなが好きなarduinoのpro microですね
+    <br>別にmicroとかでもいいんですが、小さい方がいいなと思ってこちらをAmazonで購入しました
+    <br>ラズパイとかでもできるのかな？
+    <br><br>ここで注意なんですが、キーボードと同じように反応させるライブラリがあるんですが
+    <br>それに対応しているものとしていないものがあるので気を付けてください
+    <h3>Daiso MicroUSB</h3>
+    <br><img src="./img/usb-micro.png" class="img">by <a href="https://jp.daisonet.com/products/4549131535587">Daiso</a>
+    <br>うちに使えるUSBケーブルがなかったのでこれも改めて購入しました
+    <br>ピンクなのは私の趣味です
+    <br><br>これも注意なのですが、転送対応のものでないとマイコンに書き込めないので一度確認しましょうね
+    <br>それが原因で買うことになりました。基本的に転送対応のものを買うのをおすすめします
+    <h3>スイッチングダイオード</h3>
+    <br><img src="./img/dai.jpg" class="img">by <a href="https://akizukidenshi.com/catalog/g/gI-00941/">秋月電子</a>
+    <br>こちらは電流が逆流して誤動作を起こさないように
+    <br>向きを一定の方向にして逆には流さないようにするものですね
+    <br>自作キーボードの組み立て式をやったことある人ならついてるの見たことありますよね
+    <br>秋月電子さんで安くうっていたのでこちらを購入
+    <br><br>このほかにも回路をつなぐ線やタクトスイッチなども使います
+    <br>試作は大事なので購入できる方は購入しておきましょう
+    </p>
+    <h2 class="title-2" id="s2">実際に作ってみる</h2>
+    <p>ではまず下準備をしていきましょう
+    <br>pro microはピンヘッダがハンダされていなかったので自分でハンダしました
+    <br>へたくそで曲がった状態でハンダしてしまいましたが、これはパワーで解決。<span class="mini">脳死最強</span>
+    <br>ハンダの練習はまだまだいりますね...
+    <br><br>ではまずは1キーの単純なキーボードを作ってみます
+    <br>回路はこんな感じ
+    <br><img src="./img/kairo1.png" class="img">
+    <br>タクトスイッチの片方はGND、もう片方はデジタルピンの9に接続しました
+    <br>プルアップはスケッチでやるので抵抗はなしです
+    <br>スイッチの脚が4つありますが、つながりは各自調べてみてください<span class="mini">arduino スイッチで検索すれば出てくると思います</span>
+    <br>てかpro micro、想像の数倍小さかったですね
+    <br><br>さて、次はIEDの設定をしていきます
+    <br>IEDは公式サイトからダウンロードできるのでArduino IEDとかで調べてください
+    <br><img src="./img/skech.png" class="img">
+    <br>マイコンをpcに接続して、ツール>ボード>Arduino Leonardoを選択します
+    <br>micro系はLeonardoの小型機らしいのでこちらを選択しておけば大丈夫です
+    <br>シリアルポートも各自選択しておいてください
+    <br>pcにマイコンを接続すると出てくるのでそれを選択しておきます
+    <br><br>最後にスケッチを書いていきます
+    <br>スケッチとは、プログラムのことです
+    <br>arduino界隈ではプログラムのことはスケッチと呼ぶみたいですが、好きな呼び方で問題ないでしょう
+    <br class="icon"><script src="https://gist.github.com/texture08/d52bdc9706c331b8ab6b57ee210d3ac2.js"></script>
+    <br>キーボードのライブラリは確かダウンロードが必要だったと思います
+    <br>これも各自調べてみてください
+    <br>→のボタンを押して、書き込んでみましょう
+    <br><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">すごくね？ <a href="https://t.co/xOhjQYpwiP">pic.twitter.com/xOhjQYpwiP</a></p>&mdash; シュー/きゃべつ (@H2DH8K) <a href="https://twitter.com/H2DH8K/status/1434011883510456326?ref_src=twsrc%5Etfw">September 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>こんな感じですね
+    <br>キーボードとして反応してくれるので、シフトで大文字や、コントロールでショートカットも使えるみたいですね
+    <br>とっても便利ですね
+    </p>
+    <h2 class="title-2" id="s3">とりあえず4キーのキーボードを作ってみる</h2>
+    <p>1キーのキーボードが出来たら次はボタンを増やして行きたいですよね
+    <br>なのでとりあえず4キーのキーボードを作っていきます<span class="mini">4キー分しかスイッチが余ってなかった</span>
+    <br><br>上の用にデジタルピンとGNDに同じ感じでつないで...もいんですが、増やせば増やすほどスケッチは多くなりますし
+    <br>デジタルピンの数も足りませんよね。今回のように少ないキーなら行けるんですけど....こまりました
+    <br><br>とは行きませんよ。この世界には素晴らしい方がいてキーボードを作るのに便利なものがあるんです
+    <br>それが<span class="ore">キーマトリックス</span>というものです
+    <br>いや、キーマトリックスってなんぞや？
+    <br>まぁそうなりますよね。私自身も完全に理解したわけではないので説明できるレベルじゃないんですよね...
+    <br><a href="http://romly.com/archives/2017/10/arduino_key_matrix.html">参考にした記事様</a>があるので、よければそちらを読んでみてください。配線自体はかなり簡単なんですよね
+    <br><br>マトリックスはとりあえず置いといて、回路図をみてみましょう
+    <br><img src="./img/kairo2.png" class="img">
+    <br>へたくそですみません。見にくいですよね
+    <br>上手く回路図が書ける方法があったらぜひ教えてください...
+    <br>とりあえずそれは置いてきまして、今回はこんな回路を作ってみました
+    <br>上のリンクの記事であったような配線ですね
+    <br>スケッチはこちら
+    <br class="icon"><script src="https://gist.github.com/texture08/6db87c9de31d12ccb43cd6a773275a44.js"></script>
+    <br>スケッチも完全には理解してないです...すみません
+    <br>このスケッチを書くことで、いじるところを最小限に、そして簡単に実装することができるんですね
+    <br>考えた方には感謝...！！！
+    <br>実際の動作はこちら
+    <br><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">できた！！！4キーキーボード！！！！！！<br>シフトで大文字、コントロールでショートカットも使える！！！！<br><br>?はタイプミス <a href="https://t.co/FJ52dElbAi">pic.twitter.com/FJ52dElbAi</a></p>&mdash; シュー/きゃべつ (@H2DH8K) <a href="https://twitter.com/H2DH8K/status/1434832002050498561?ref_src=twsrc%5Etfw">September 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>実は最初動かなくて2日くらい悩んでたので実際に動作してくれたときはすごく感動しました
+    <br>いやぁ感動
+    </p>
+    <h2 class="title-2" id="s4">ここで出てくる問題</h2>
+    <p>ここで出てくるのが誤動作に関する問題です
+    <br>同時押しとかをすると電流が行くべきではないところに流れて誤ったキーを押してしまいます
+    <br>それを解決するのが<span class="ore">スイッチング ダイオード</span>というものです
+    <br>先ほどの回路にダイオードを追加するとこんな感じ
+    <br><img src="./img/kairo3.png" class="img">
+    <br>アノードとカソードを間違えないように、スイッチの出力側につけます
+    <br>これで逆流が防止されて誤動作もしにくくなると思います
+    </p>
+    
+    <h2 class="title-2" id="s4">終わりに</h2>
+    <p>ということで今回はこれで終わりです
+    <br>どうだったでしょうか？
+    <br>回路図とかが少々みにくいのは許してください。今回の記事を書くのに色々調べながら回路図を書いたので悪しからず...
+    <br>まぁそんなこんなで次回くらいが最終回になると思います
+    <br>そのため、試作期間とか部品発注とかでいつ頃また投稿するかはちょっと不明です
+    <br>ケースの自作とかもあるので...<span class="mini">3Dプリンタ欲しい...</span>
+    <br>よければこの時期を参考に自分だけのキーボード、作ってみてください
+    <br>それではまた次回
+    <br><br><a href="https://twitter.com/intent/tweet?text=%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E8%A9%B12%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%0Ahttps://syu-rws.vercel.app/blog/article/key2.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+    </p>
+  </div>
+  <script src="../../scripts/footer.js"></script>
+  </body>
+</html>
