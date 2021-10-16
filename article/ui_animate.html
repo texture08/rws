@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>知ってる？UIでアニメーションができるってよ！！</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/article/ui_animate.html" />
+    <meta property="og:title" content="知ってる？UIでアニメーションができるってよ！！" />
+    <meta property="og:description" content="情報の少ないuiについてできる限りわかりやすくしました" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/img/ui_animate.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+	  <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
+	  <link rel="apple-touch-icon" href="../img/favicon.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../scripts/header.js"></script>
+    <h1 class="title-1"><span class="mgr-10">知ってる？UIでアニメーションができるってよ！！</span></h1>
+    <p>こんにちはシューです
+    <br>実はuiってアニメーションができるんですよ
+    <br>割と使えたり使えなかったりするので是非試してみてください
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">uiアニメーションって何？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">バニラで使われてるの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">アニメーションの仕組みって？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">実際に作ってみよう！</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s5" class="link-2">実際に作ってみよう！</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s6" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2021.07.21</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">uiアニメーションって何？</h2>
+    <p>そもそもuiアニメーションってなんでしょうね。
+    <br>そのまんまなんですけど、uiで一つの画像をスライドしてアニメーションするって感じです
+    <br>実際にこの仕組みを使って作ってみたのがあります。下の動画から見れます
+    <br><iframe width="560" height="315" src="https://www.youtube.com/embed/DlvaEbwtcis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>こんなことができるよ～くらいに見ておいてください
+    </p>
+    <h2 class="title-2" id="s2">バニラで使われてるの？</h2>
+    <p>答えは、使われています、ですね
+    <br>遊ぶを押すとマルチできますよね
+    <br>そこが時々ぴょんぴょんしてる時があります
+    <br>コードみてないんですが、こういうところに使われていたりします
+    <br>条件によって表示非表示何かもできるので演出で使ったりとかもできますね
+    </p>
+    <h2 class="title-2" id="s3">アニメーションの仕組みって？</h2>
+    <p>仕組みはすごく簡単です
+    <br>一つの画像ファイルに横に並べて、プログラム側で切り抜いて、それをスライドしていく感じです
+    <br>unityとかで2Dゲームを作ったことがある人は馴染みのある方法ではないでしょうか？<span class="mini">そんな人がわざわざこのサイト見てないんですけどね</span>
+    <br>仕組みを理解していくのに時間がかかりますが、わかれば簡単です
+    </p>
+    <h2 class="title-2" id="s4">実際に作ってみよう！</h2>
+    <p>では、実際に作って動作確認していきましょう。
+    <br>ファイル構成は以下の通りです
+    </p>
+    <div class="file">
+        <ul>
+          <li><i class="fas fa-folder"></i><a class="mgr-10">リソースパック</a>
+            <ul>
+              <li><i class="fas fa-folder"></i><a class="mgr-10">ui</a>
+                <ul>
+                  <li><i class="fas fa-file-alt"></i><a class="mgr-10">hud_screen.json</a></li>
+                  <li><i class="fas fa-images"></i><a class="mgr-10">test_animate.png</a></li>
+                </ul>
+              </li>
+                  <li><i class="fas fa-file-alt"></i><a class="mgr-10">manifest.json</a></li>
+                  <li><i class="fas fa-images"></i><a class="mgr-10">pack_icon.png<span class="mini">こちらはお好みで</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <p>今回はわかりやすくするためにhud_screen.jsonに書いていきます
+        <br>
+        </p>
+        <h2 class="title-2" id="s6">終わりに</h2>
+        <p>いかがでしたか？
+        <br>記事をかくのは少し苦手なので分かりにくいところもあるかと思います
+        <br>ぜひ質問してください
+        <br><br>uiにはほかに面白い要素があるんですが
+        <br>長くなってしまうので、別の記事で解説していこうと思います
+        <br>ぜひTwitterのフォローや、サイトのブックマークよろしくお願いします
+        <br><br>今回テストで作ったファイルのzipファイルを配布しておきます
+        <br>ご自由に使ってくれてかまいませんが
+        <br>中に入っている画像を使うのだけはよしてください
+        <br>フリー素材じゃないです
+        <br><a class="button" href="../data/ui_test.zip" download="../data/ui_test.zi">Download</a>
+        <a href="https://twitter.com/intent/tweet?text=%E7%9F%A5%E3%81%A3%E3%81%A6%E3%82%8B%EF%BC%9FUI%E3%81%A7%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%A3%E3%81%A6%E3%82%88%EF%BC%81%EF%BC%81%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E5%B7%A5%E6%88%BF%0Ahttps://syu-rws.vercel.app/article/ui_animate.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+        </p>
+    </div>
+    <script src="../scripts/footer.js"></script>
+    </body>
+</html>
