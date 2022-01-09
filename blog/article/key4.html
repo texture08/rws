@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>キーボートを作りたい話#4 キーマトリックスって何者？</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/blog/article/key4.html" />
+    <meta property="og:title" content="キーボートを作りたい話#4 キーマトリックスって何者？" />
+    <meta property="og:description" content="キーマトリックスについて理解するために色々調べたことをまとめています" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/blog/img/key4.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../../img/blog.png">
+	  <link rel="shortcut icon" type="image/png" href="../../img/blog.png">
+	  <link rel="apple-touch-icon" href="../../img/blog.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../../scripts/header_blog.js"></script>
+    <h1 class="title-1"><span class="mgr-10">キーボートを作りたい話#4 キーマトリックスって何者？</span></h1>
+    <p>こんにちはシューです
+    <br>皆さんはキーマトリックスを理解していますでしょうか？
+    <br>私はほとんどしていないです
+    <br>なので、ここでまとめながら理解を深めていこうと思います
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">キーマトリックスって何？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">どうやって使うの？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">キーマトリックスの仕組みとは？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">注意</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s5" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2022.1.9</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">キーマトリックスって何？</h2>
+    <p><a href="https://www.ei.fukui-nct.ac.jp/~t-saitoh/exp/h8/key-matrix.html" target="_blank">参考にした記事</a>によると
+    <br><span class="ore">複数のキースイッチの状態を調べるのであれば、本来ならスイッチの数だけ 入力ポートが必要となる
+    <br>しかし、キーボードのように大量のキーでは 入力ポートが不足してしまう。 このような時に使われる方法が、キーマトリックススキャンである。</span>
+    <br>と書いてありますね。つまりは、「キーボード作るときにデジタルピンが足りないからキーマトリックス使おうね」ってことです
+    <br>確かにキーボードは100キーとかザラにあります
+    <br>一個一個処理を書いてたらデジタルピンも足りないですし、スケッチ<span class="mini">プログラム</span>>もかなりの長さになっちゃいます
+    <br>それは避けたいですよね
+    <br><br>あ、デジタルピンというのはArduinoやラズパイなどのピンのことです
+    <br>この記事では多少電子工作の知識があることを前提に進んでいきます
+    </p>
+    <h2 class="title-2" id="s2">どうやって使うの？</h2>
+    <p>先ほどの記事の回路図です
+    <br><img src="./img/key-matrix.png" class="img">
+    <br>こんな感じの回路になります
+    <br>詳しい解説は次の章にしますが、HIGHとLOWを組み合わせる感じなんですかね
+    <br><br>ちなみに抵抗がついてるのはプルダウン<span class="mini">プルアップもあるよ</span>といって、回路の浮いている状態を解消するやつです
+    <br>pro microとかには内臓抵抗があるのでスケッチでやることができます
+    <br>そのため、私の回路では抵抗はつけていません
+    <br>その方がすっきりするでしょ？
+    </p>
+    <h2 class="title-2" id="s3">キーマトリックスの仕組みとは？</h2>
+    <p>キーマトリックスと回路についてはわかりましたが、あの記事だけでは仕組みがちょっと...
+    <br>なので、調べてきました
+    <br>どうやら、順番に一列づつ監視していて、入力が確認されたらHigh、Lowで入力する...みたいな？
+    <br>ごほん、一列目のスイッチを読むためには、まず出力1をHighにしてそれ以外をLowにします
+    <br>そしたら、入力1から3の状態を読み取ることで、SWの状態がわかります
+    <br><br>終ったら、二列目を読みます。出力2をHigh、それ以外をLowにして
+    <br>入力1から3の状態を読む。
+    <br>これを繰り返すことで、少ないデジタルピンでたくさんのキーが読み取れますよね
+    <br><br><a href="https://www.a10i.jp/?p=1377" target="_blank">参考にした図</a>があるのでこちらを見てみると言ってることが分かると思います
+    </p>
+    <h2 class="title">注意</h2>
+    <p>ここで注意です
+    <br>回路図を見て、「あれ？ダイオードがあるな」って思った人もいると思います
+    <br>そうです、こちらのダイオードが大事なんです
+    <br>スイッチングダイオードといって、電流が逆流しないようにするためにつけます
+    <br>これがないと、同時押しをしたときに、全く別の入力になるというバグが生じます
+    <br>とりあえず、バグらないようにつけるということを覚えておきましょう
+    </p>
+    <h2 class="title-2" id="s4">終わりに</h2>
+    <p>いかがでしょうか？
+    <br>キーマトリックスについてあんまり理解ができなかったんですが
+    <br>この機会でちゃんと理解仕様と思って、調べて見ました
+    <br>私は結構理解ができたつもりです
+    <br><br>まぁ、これが理解できなくてキーボードは作れますが
+    <br>分かっている人と分かっていない人だと結構違いが出てくるなと思うので
+    <br>分かって損はないですよ
+    <br>ではでは
+    <br><br><a href="https://twitter.com/intent/tweet?text=%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E8%A9%B14%20%E3%82%AD%E3%83%BC%E3%83%9E%E3%83%88%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B9%E3%81%A3%E3%81%A6%E4%BD%95%E8%80%85%EF%BC%9F%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%0Ahttps://syu-rws.vercel.app/blog/article/key4.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+    </p>
+  </div>
+  <script src="../../scripts/footer.js"></script>
+  </body>
+</html>
