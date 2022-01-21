@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>キーボートを作りたい話#7 プリント基板を設計</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/blog/article/key7.html" />
+    <meta property="og:title" content="キーボートを作りたい話#7 プリント基板を設計" />
+    <meta property="og:description" content="回路が完成したのでプリント基板を設計します" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/blog/img/key7.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../../img/blog.png">
+	  <link rel="shortcut icon" type="image/png" href="../../img/blog.png">
+	  <link rel="apple-touch-icon" href="../../img/blog.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../../scripts/header_blog.js"></script>
+    <h1 class="title-1"><span class="mgr-10">キーボートを作りたい話#7 プリント基板を設計</span></h1>
+    <p>シューです
+    <br>前回ロータリーエンコーダを使って試作をしましたよね
+    <br>そちらを前々回のキーボードの回路とくっつけました
+    <br><img src="./img/kairo6.png" class="img">
+    <br>今回はこちらをプリント基板にしていきます
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">プリント基板って？</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">設計</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2022.1.9</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">プリント基板って？</h2>
+    <p>機械の中に緑の板が入っいるイメージないですか？
+    <br>それです（適当）
+    <br>真面目に説明しますと、そういった板のことを<span class="ore">プリント基板</span>だったり<span class="ore">PBC</span>などといいます
+    <br>最近は緑以外にもいろんな色があります
+    <br>プリント基板は配線がすでにされていて、部品をハンダするだけの板です
+    <br>便利なんですが、こちらを作るとなると家だと少し大変でお金もかかってしますんです
+    <br>なので今回は業者さんに頼んで作ってもらうということをします
+    <br>実は結構簡単なんですよ
+    </p>
+    <h2 class="title-2" id="s2">設計</h2>
+    <p>ではこれを設計します。Kicadという私が回路図を描いたものと同じソフトを使って設計していきます
+    <br>割と大変だった...
+    <br><img src="./img/pcb1.png" class="img">
+    <br>とりあえずこんな感じで配置しました
+    <br>で、次はこちらを配線していくんですが、手で配線するのはちょっとめんどくさいので今回はフリーソフトを使います
+    <br><span class="ore">freeroute.jar</span>という便利なソフトです
+    <br>ただ、自動配線なので個人的に直したいところだったり、少し複雑になっているところを手で修正します
+    <br>こんな感じで配線してみました
+    <br><img src="./img/pcb2.png" class="img">
+    <br>初めてなので下手なところもあると思いますが許してほしいです
+    <br>最後に微調整をしてこんな感じにしました
+    <br><img src="./img/pcb3.png" class="img">
+    <br>あとはこれを業者さんに発注してやればいいですね
+    </p>
+    <h2 class="title-2" id="s3">終わりに</h2>
+    <p>内容が薄いのは申し訳ないです
+    <br>基板の発注はまた次回にして、気づいたところを修正しようと思います
+    <br>多分ガバガバなところが何ヵ所かあるので、基板は二かい発注することになると思います
+    <br>ひえー
+    <br>まだまだ続きます。ではまた
+    <br><br><a href="https://twitter.com/intent/tweet?text=%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E8%A9%B17%20%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E5%9F%BA%E6%9D%BF%E3%82%92%E8%A8%AD%E8%A8%88%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%0Ahttps://syu-rws.vercel.app/blog/article/key7.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+    </p>
+  </div>
+  <script src="../../scripts/footer.js"></script>
+  </body>
+</html>

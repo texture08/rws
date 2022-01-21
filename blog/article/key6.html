@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>キーボートを作りたい話#6 ロータリーエンコーダを使ってみる</title>
+    <!--カード-->
+    <meta name="twitter:card" content="summary_large_image" /> <!--summary_large_image or summary-->
+    <meta name="twitter:site" content="@H2DH8K" />
+    <meta property="og:url" content="https://syu-rws.vercel.app/blog/article/key6.html" />
+    <meta property="og:title" content="キーボートを作りたい話#6 ロータリーエンコーダを使ってみる" />
+    <meta property="og:description" content="くるくる回す部分を再現します" />
+    <meta property="og:image" content="https://syu-rws.vercel.app/blog/img/key6.png" />
+    <!--アイコン-->
+    <link rel="icon" type="image/png" href="../../img/blog.png">
+	  <link rel="shortcut icon" type="image/png" href="../../img/blog.png">
+	  <link rel="apple-touch-icon" href="../../img/blog.png">
+    <!--styles-->
+		<link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <script src="../../scripts/header_blog.js"></script>
+    <h1 class="title-1"><span class="mgr-10">キーボートを作りたい話#6 ロータリーエンコーダを使ってみる</span></h1>
+    <p>シューです
+    <br>前回、キーボードの試作を完成させましたね
+    <br>今回は#3で紹介した目標のくるくるの部分の試作をします
+    </p>
+    <div class="index">
+      <label for="openin">目次</label>
+      <input id="openin" type="checkbox">
+      <ol class="open">
+          <li><i class="far fa-check-square"></i><a href="#s1" class="link-2">ロータリーエンコーダとは</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s2" class="link-2">やりたいこと</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s3" class="link-2">試作する</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s4" class="link-2">裏話</a></li>
+          <li><i class="far fa-check-square"></i><a href="#s5" class="link-2">終わりに</a></li>
+          <li>最終更新日: 2022.1.9</li>
+      </ol>
+    </div>
+    <h2 class="title-2" id="s1">ロータリーエンコーダとは</h2>
+    <p>なんかクルクル回せるやつなんですが、仕組みが少し複雑なので調べてみてください
+    <br>可変抵抗という回すと抵抗値を出力するものがあります
+    <br>それと似ていますが、ロータリーエンコーダは抵抗値は何も出力しませんし
+    <br>場所の絶対座標も相対座標も出力しません。
+    <br>接点が二つあるんですが、どうのこうのして処理をしていきます
+    <br>ちょっと癖があるんですね
+    <br><br>たとえば、マウスのクルクルの部分、ホイールですね
+    <br>あそこもロータリーエンコーダですね
+    </p>
+    <h2 class="title-2" id="s2">やりたいこと</h2>
+    <p>やりたいことは単純です。クリスタというペイントソフトのキャンバスをクルクル回したいのです
+    <br>ショートカットもあるんですが、可視化できた方が直感的でわかりやすいと思いませんか？
+    <br>私はそう思います
+    </p>
+    <h2 class="title-2" id="s3">試作する</h2>
+    <p>今回は使うロータリーエンコーダはこちら
+    <br><img src="./img/rotari.png" class="img">
+    <br>uxcellさんの7ピンのものですね
+    <br>Amazonで購入しました
+    <br><br>回路を作成します
+    <br><img src="./img/kairo5.png" class="img">
+    <br>調べて分かったんですが、これ真ん中がGNDなんですよ。騙された
+    <br>これでどれだけ時間をかけたことか...
+    <br><br>すこしだけ回路の解説をします
+    <br>A、Bのピンはデジタルピンに接続します
+    <br>これが実際に波形を出力するピンです
+    <br>プルアップ抵抗とノイズ対策用のコンデンサ<span class="mini">0.01uFだよ</span>をつなげます
+    <br>コンデンサはまだ購入していないので今回はつなげずにいきます
+    <br>S1、S2はスイッチのピンですこちらはスケッチでプルアップするので抵抗はなしです
+    <br><br>スケッチはこちら
+    <br class="icon"><script src="https://gist.github.com/texture08/07f74c4288c50a888c3f6e3ca2cf4745.js"></script>
+    <br>気づいたかもしれませんが、かなりごり押しです（）
+    <br>ロータリーエンコーダのライブラリがあったのでそちらを使用しています
+    <br>して、クルクル回すと回転し押し込みをするとすべてもとに戻ります
+    <br>実際の動作はこちら
+    <br><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">やばいwwwwwまじでキタコレwwww <a href="https://t.co/ZH1LU8ZYDJ">pic.twitter.com/ZH1LU8ZYDJ</a></p>&mdash; シュー.dll (@H2DH8K) <a href="https://twitter.com/H2DH8K/status/1480497596192161793?ref_src=twsrc%5Etfw">January 10, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
+    <h2 class="title-2" id="s4">裏話</h2>
+    <p>興味ないかもしれないですが裏話です
+    <br>これが中々苦戦しましてね
+    <br>ABCと端子があるんですが、Cが真ん中だなんて気づくのに時間がかかりましたね
+    <br>記事をみたら右からABCになっていたんですね
+    <br>動画をみてACBだって気づきましたね。あーつらい
+    <br>それに接触不良なのかはわかんないんですが、これまた中々目的の処理化できなくて...
+    <br>それにピンも間違えたりと散々でしたね
+    <br>まぁそんなんです
+    </p>
+    <h2 class="title-2" id="s5">終わりに</h2>
+    <p>スケッチはもう完成させたので次回は基板を作っていこうかな？
+    <br>ここまでやってくるのも中々大変でしたので、完成が今か今かと待っています
+    <br>ではまた
+    <br><br><a href="https://twitter.com/intent/tweet?text=%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E8%A9%B16%20%E3%83%AD%E3%83%BC%E3%82%BF%E3%83%AA%E3%83%BC%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%80%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B%20%7C%20%E3%82%B7%E3%83%A5%E3%83%BC%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%0Ahttps://syu-rws.vercel.app/blog/article/key6.html%20@.H2DH8K%20%E3%82%88%E3%82%8A" class="twitter"><i class="fab fa-twitter"></i>ツイートする</a>
+    </p>
+  </div>
+  <script src="../../scripts/footer.js"></script>
+  </body>
+</html>
