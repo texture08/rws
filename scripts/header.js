@@ -7,8 +7,7 @@ document.write(`<header>
                                 <p class="h"><span class="mgr-10">アイコン</span><br><span class="mgr-10"><a href="https://fontawesome.com/?from=io" target="_blank" class="color1">FontAwesome</a></span></p>
                                 <h3 class="title-1"><span class="mgr-10">シューの個人ブログはこちらから</span></h3>
                                 <p class="h"><span class="mgr-10"><a href="https://syu-rws.vercel.app/blog/index.html" target="_blank" class="color1">ここをクリック</a></span></p>
-                                <h3 class="title-1"><span class="mgr-10">UTAU音源はこちらから！</span></h3>
-                                <p class="h"><span class="mgr-10"><a href="https://syu-rws.vercel.app/blog/index.html" target="_blank" class="color1">ここをクリック</a></span></p>
+                                
                                 <h3><span class="mgr-10"><a href="https://twitter.com/H2DH8K?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">フォローする By H2DH4K</a><sccolor1pt async src="https://platform.twitter.com/widgets.js" charset="utf-8"></sccolor1pt></span></p>
                         </div>
                 </div>
@@ -22,4 +21,4 @@ document.write(`<header>
                                 </ul>
                 </div>
         </div>
-</header>`)
+</header>`);
